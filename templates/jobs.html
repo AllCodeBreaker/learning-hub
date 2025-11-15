@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ dept.name }} Jobs - Learning HUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>{{ dept.expansion }} ({{ dept.name }})</h1>
+            <p class="tag">Available job roles and career paths</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="dept-jobs">
+            <h2>Jobs & Roles</h2>
+            <div class="dept-grid">
+                {% for job in jobs %}
+                <article class="card job-card">
+                    <h3>{{ job.name }}</h3>
+                    <p class="muted">{{ job.desc }}</p>
+                    <div class="card-actions">
+                        <a class="btn btn-primary" href="/{{ dept_key }}/jobs/{{ job.id }}">View roadmap</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <p style="margin-top:32px"><a href="/" class="btn btn-outline">Back to home</a></p>
+    </main>
+</body>
+</html>

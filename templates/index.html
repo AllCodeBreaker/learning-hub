@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning HUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Learning HUB</h1>
+            <p class="tag">Learn. Build. Explore careers.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>About</h2>
+            <p>
+                This hub helps engineering students learn the skills they need and explore job paths.
+                Choose a department below, then pick "Learning" to see study resources or "Jobs" to explore career
+                paths.
+            </p>
+        </section>
+
+        <section>
+            <h2>Departments</h2>
+            <div class="dept-grid">
+                {% for key, dept in departments.items() %}
+                <article class="card">
+                    <h3>{{ dept.name }}</h3>
+                    <p class="muted">{{ dept.desc }}</p>
+                    <div class="card-actions">
+                        <a class="btn btn-primary" href="/{{ key }}/jobs">Explore</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        <section>
+            <h2>Placement guide</h2>
+            <div>
+                <div>
+                    Core Field
+                </div>
+                <div>
+                    Communication Guide
+                </div>
+                <div>
+                    Aptitude
+                </div>
+                <div>
+                    Coding rounds
+                </div>
+                <div>
+                    Mock Interview
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Made with ❤️ to guide students — extend department pages with curated resources.</p>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ job.name }} - {{ dept.name }} - Learning HUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        .steps { margin-top: 12px }
+        .steps li { margin: 8px 0 }
+        .resources li { margin: 6px 0 }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>{{ job.name }}</h1>
+            <p class="tag">Role roadmap and learning checklist</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <p class="muted">{{ job.desc }}</p>
+
+            <h3 style="margin-top:18px">Learning checklist</h3>
+            <ol class="steps">
+                {% for step in job.steps %}
+                <li>
+                    <input type="checkbox" id="s{{ loop.index }}"> <label for="s{{ loop.index }}">{{ step }}</label>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <h3 style="margin-top:18px">Resources</h3>
+            <ul class="resources">
+                {% for r in job.resources %}
+                <li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <p style="margin-top:32px"><a href="/{{ dept_key }}/jobs" class="btn btn-outline">Back to jobs</a></p>
+    </main>
+</body>
+</html>

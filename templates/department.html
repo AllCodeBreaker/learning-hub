@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ dept.name }} - Learning HUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        .lead { margin: 12px 0 20px; color: #333 }
+        .list { margin-top: 14px }
+        .list li { margin: 8px 0 }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>{{ dept.expansion }} ({{dept.name}}) </h1>
+            <p class="tag">Department overview and paths</p>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if not option %}
+            <h2>{{ dept.expansion }} — Overview</h2>
+            <p class="lead">This page combines suggested learning resources and job paths for <strong>{{ dept.name }}</strong> students.</p>
+
+            <section>
+                <h3>Learning suggestions</h3>
+                <ul class="list">
+                    <li>Core subjects and strong fundamentals</li>
+                    <li>Small projects and labs to build a portfolio</li>
+                    <li>Recommended online courses and books</li>
+                </ul>
+            </section>
+
+            <section style="margin-top:16px">
+                <h3>Job & placement tips</h3>
+                <ul class="list">
+                    <li>Typical roles: Developer, Systems Engineer, Data Specialist, Domain Expert</li>
+                    <li>Prepare a concise resume and targeted project list</li>
+                    <li>Practice interviews and build networking contacts</li>
+                </ul>
+            </section>
+        {% else %}
+            {# If option exists (legacy), keep showing combined content as a fallback #}
+            <h2>{{ dept.expansion }} — Resources</h2>
+            <p class="lead">See learning and career guidance for {{ dept }}.</p>
+        {% endif %}
+
+        <p style="margin-top:32px"><a href="/" class="btn btn-outline">Back to home</a></p>
+    </main>
+</body>
+</html>

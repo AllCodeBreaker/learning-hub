@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ placement.company }} - {{ placement.role }} - {{ dept.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        .steps { margin-top: 12px }
+        .steps li { margin: 8px 0 }
+        .resources li { margin: 6px 0 }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>{{ placement.company }} — {{ placement.role }}</h1>
+            <p class="tag">Placement preparation checklist</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <p class="muted">Example role at {{ placement.company }} for {{ dept.name }} students.</p>
+
+            <h3 style="margin-top:18px">Preparation checklist</h3>
+            <ol class="steps">
+                {% for tip in placement.tips %}
+                <li>
+                    <input type="checkbox" id="p{{ loop.index }}"> <label for="p{{ loop.index }}">{{ tip }}</label>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <h3 style="margin-top:18px">Resources</h3>
+            <ul class="resources">
+                {% for r in placement.resources %}
+                <li><a href="{{ r.url }}" target="_blank" rel="noopener">{{ r.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <p style="margin-top:32px"><a href="/{{ dept_key }}/placements" class="btn btn-outline">Back to placements</a></p>
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ dept.name }} Placements - Learning HUB</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>{{ dept.expansion }} ({{ dept.name }})</h1>
+            <p class="tag">Placement roles and sample companies</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="dept-placements">
+            <h2>Placements</h2>
+            <div class="dept-grid">
+                {% for p in placements %}
+                <article class="card placement-card">
+                    <h3>{{ p.company }}</h3>
+                    <p class="muted">Role: {{ p.role }}</p>
+                    <div class="card-actions">
+                        <a class="btn btn-primary" href="/{{ dept_key }}/placements/{{ p.id }}">How to prepare</a>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <p style="margin-top:32px"><a href="/" class="btn btn-outline">Back to home</a></p>
+    </main>
+</body>
+</html>
