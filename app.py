@@ -1,5 +1,4 @@
 from flask import Flask, render_template, abort
-import learn
 from learn import ALLOWED_DEPARTMENTS, get_jobs, get_job, get_placements, get_placement
 
 app = Flask(__name__, static_folder="static")
@@ -8,8 +7,7 @@ app = Flask(__name__, static_folder="static")
 @app.get("/")
 def home():
     # landing page showing departments and options
-    placements = get_placements()
-    return render_template("index.html", departments=ALLOWED_DEPARTMENTS, placements=placements)
+    return render_template("index.html", departments=ALLOWED_DEPARTMENTS)
 
 
 @app.get("/<dept>")

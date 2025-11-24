@@ -10,26 +10,31 @@ ALLOWED_DEPARTMENTS = {
     "cse": {
         "name": "CSE",
         "expansion": "Computer Science and Engineering",
+        "image": "images/cse.jpg",
         "desc": "The Computer Science and Engineering (CSE) department focuses on the study of computer systems, software development, algorithms, and data structures. It prepares students for careers in software engineering, data science, artificial intelligence, and more."
     },
     "it": {
         "name": "IT",
         "expansion": "Information Technology",
+        "image": "images/it.jpg",
         "desc": "The Information Technology (IT) department emphasizes the application of technology in business and organizational contexts. It covers topics such as network administration, cybersecurity, database management, and IT project management, preparing students for roles in IT support, systems analysis, and network engineering."
     },
     "ads": {
         "name": "ADS",
         "expansion": "Artificial Intelligence and Data Science",
+        "image": "images/ads.jpg",
         "desc": "AI & Data Science focuses on machine learning, data analysis, and building intelligent systems. Students learn statistics, ML algorithms, and practical data pipelines."
     },
-    "mech": {
-        "name": "MECH",
-        "expansion": "Mechanical Engineering",
-        "desc": "Mechanical Engineering covers design, thermodynamics, materials, and manufacturing — useful for careers in product development and system design."
-    },
+    # "mech": {
+    #     "name": "MECH",
+    #     "expansion": "Mechanical Engineering",
+    #     "image": "",
+    #     "desc": "Mechanical Engineering covers design, thermodynamics, materials, and manufacturing — useful for careers in product development and system design."
+    # },
     "ece": {
         "name": "ECE",
         "expansion": "Electronics and Communication Engineering",
+        "image": "images/ece.jpg",
         "desc": "ECE teaches electronics, signal processing, embedded systems, and communications engineering — leading to roles in hardware, IoT, and telecom."
     }
 }
@@ -85,8 +90,7 @@ __jobs = {
                 {"title": "Hands-On ML textbook", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/"}
             ]
         }
-    ],
-    "it": [
+    ,
         {
             "id": "sys-admin",
             "name": "System Administrator",

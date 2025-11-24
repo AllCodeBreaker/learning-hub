@@ -12,59 +12,67 @@
     <header class="site-header">
         <div class="container">
             <h1>Learning HUB</h1>
-            <p class="tag">Learn. Build. Explore careers.</p>
+            <p class="tag">
+                Learn. Build. Explore careers.
+            </p>
         </div>
     </header>
 
     <main class="container">
         <section class="intro">
-            <h2>About</h2>
             <p>
                 This hub helps engineering students learn the skills they need and explore job paths.
-                Choose a department below, then pick "Learning" to see study resources or "Jobs" to explore career
-                paths.
+                Choose a department below, then pick "Explore" to explore jobs
+                paths and you can also get roadmaps for it.
             </p>
         </section>
 
         <section>
             <h2>Departments</h2>
-            <div class="dept-grid">
+            <div class="dept-flex">
                 {% for key, dept in departments.items() %}
-                <article class="card">
-                    <h3>{{ dept.name }}</h3>
-                    <p class="muted">{{ dept.desc }}</p>
-                    <div class="card-actions">
-                        <a class="btn btn-primary" href="/{{ key }}/jobs">Explore</a>
+                <article class="card flex-c">
+                    <div>
+                        <a href="/{{key}}">
+                            <img src="{{'static/' + dept.image}}" class="dept-image" />
+                        </a>
+                        <h3>{{ dept.name }}</h3>
+                        <p class="muted">{{dept.desc }}</p>
+                    </div>
+                    <div class="card-action">
+                        <a class="btn btn-primary" href="/{{key}}">Explore</a>
                     </div>
                 </article>
                 {% endfor %}
             </div>
         </section>
-        <section>
-            <h2>Placement guide</h2>
-            <div>
-                <div>
-                    Core Field
-                </div>
-                <div>
-                    Communication Guide
-                </div>
-                <div>
-                    Aptitude
-                </div>
-                <div>
-                    Coding rounds
-                </div>
-                <div>
-                    Mock Interview
-                </div>
-            </div>
-        </section>
 
-        <footer class="site-footer">
-            <p>Made with ❤️ to guide students — extend department pages with curated resources.</p>
-        </footer>
+        <section>
+            <h2>About</h2>
+            <div class="container">
+                <p>
+                    Learning HUB is build for engineering students who wants to learn and get a good job. The motive of
+                    this project is to give a idea about their course specific jobs and learning guide. Choose your
+                    department and click explore to get details about your course core subjects and job specific
+                    subjects.
+                </p>
+                <br>
+                <p>
+                    If you find any issues or any request to add more features. Feel free to contact us throught out
+                    social links. Contributors are welcomed.
+                </p>
+            </div>
+
+        </section>
     </main>
+    <footer class="container">
+        <h3>Contact us</h3>
+        <div class="dept-flex">
+            <a href="https://github.com/allcodebreaker/learning-hub">
+                GitHub
+            </a>
+        </div>
+    </footer>
 </body>
 
 </html>
